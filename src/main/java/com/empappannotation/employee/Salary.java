@@ -1,14 +1,17 @@
 package com.empappannotation.employee;
 
 import java.text.DecimalFormat;
-import java.util.regex.Pattern;
 
+import org.springframework.stereotype.Component;
+
+@Component("payScale")
 public class Salary {
 	
 	private double grassPay;
 	private double pf;
 
 	public Salary() {
+		System.out.println("Salary default constructor");
 	}
 
 	public Salary(double grassPay, double pf) {

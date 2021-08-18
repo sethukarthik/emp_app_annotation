@@ -46,7 +46,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				emp.setEmail(rs.getString("email"));
 				emp.setCorpId(rs.getString("corp_id"));
 				emp.setPhoneNumber(rs.getLong("phone_number"));
-				emp.setBand(rs.getString("band"));
 				return emp;
 			}
 			
@@ -69,7 +68,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				emp.setEmail(rs.getString("email"));
 				emp.setCorpId(rs.getString("corp_id"));
 				emp.setPhoneNumber(rs.getLong("phone_number"));
-				emp.setBand(rs.getString("band"));
 				emp.setSalary(sal);
 				return emp;
 			}
@@ -94,7 +92,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				emp.setEmail(rs.getString("email"));
 				emp.setCorpId(rs.getString("corp_id"));
 				emp.setPhoneNumber(rs.getLong("phone_number"));
-				emp.setBand(rs.getString("band"));
 				emp.setSalary(sal);
 				return emp;
 			}
@@ -112,7 +109,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				ps.setString(2, emp.getEmail());
 				ps.setString(3, emp.getCorpId());
 				ps.setInt(4, 1);
-				ps.setString(5, emp.getBand());
 				ps.setLong(6, emp.getPhoneNumber());
 			}
 			@Override
@@ -124,8 +120,7 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 	
 	@Override
 	public void save(Employee employee) {
-		getJdbcTemplate().update(newEmp, new Object[] { employee.getName(), employee.getEmail(), employee.getCorpId(), 3, 
-				employee.getBand(), employee.getPhoneNumber() });
+		getJdbcTemplate().update(newEmp, new Object[] { employee.getName(), employee.getEmail(), employee.getCorpId(), 3, employee.getPhoneNumber() });
 	}
 
 	@Override
@@ -185,7 +180,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				ps.setString(2, emp.getEmail());
 				ps.setString(3, emp.getCorpId());
 				ps.setInt(4, 2);
-				ps.setString(5, emp.getBand());
 				ps.setLong(6, emp.getPhoneNumber());
 				return ps;
 			}
@@ -202,7 +196,6 @@ public class JdbcSupport extends JdbcDaoSupport implements DaoJdbc {
 				ps.setString(2, emp.getEmail());
 				ps.setString(3, emp.getCorpId());
 				ps.setInt(4, 2);
-				ps.setString(5, emp.getBand());
 				ps.setLong(6, emp.getPhoneNumber());
 				return ps;
 			}

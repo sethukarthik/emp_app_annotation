@@ -43,7 +43,6 @@ public class DaoJdbcImp implements DaoJdbc{
 					emp.setEmail(rs.getString("email"));
 					emp.setCorpId(rs.getString("corp_id"));
 					emp.setPhoneNumber(rs.getLong("phone_number"));
-					emp.setBand(rs.getString("band"));
 					employeeSet.add(emp);
 				}
 				return employeeSet;
@@ -65,7 +64,6 @@ public class DaoJdbcImp implements DaoJdbc{
 				emp.setEmail(rs.getString("email"));
 				emp.setCorpId(rs.getString("corp_id"));
 				emp.setPhoneNumber(rs.getLong("phone_number"));
-				emp.setBand(rs.getString("band"));
 				emp.setSalary(sal);
 				return emp;
 			}

@@ -1,41 +1,46 @@
 package com.empappannotation.employee;
 
+import javax.inject.Named; //This is JEE Annotation
+
+import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired; -> This is spring Annotation
+import org.springframework.stereotype.Component;
+
+@Component
 public class Employee {
 	private int id;
 	private String name;
 	private String email;
 	private String corpId;
-	private String band;
+	
 	private long phoneNumber;
 	private Salary salary;
 	
 	public Employee() {
+		System.out.println("Default Employee Constructor");
 	}
 
-	public Employee(int id, String name, String email, String corpId, String band, long phoneNumber) {
+	public Employee(int id, String name, String email, String corpId, long phoneNumber) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.corpId = corpId;
-		this.band = band;
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public Employee(String name, String email, String corpId, String band, long phoneNumber) {
+	public Employee(String name, String email, String corpId, long phoneNumber) {
 //		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.corpId = corpId;
-		this.band = band;
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public Employee(int id, String name, String email, String corpId, String band, long phoneNumber, Salary salary) {
+	public Employee(int id, String name, String email, String corpId, long phoneNumber, Salary salary) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.corpId = corpId;
-		this.band = band;
 		this.phoneNumber = phoneNumber;
 		this.salary = salary;
 	}
@@ -72,14 +77,6 @@ public class Employee {
 		this.corpId = corpId;
 	}
 
-	public String getBand() {
-		return band;
-	}
-
-	public void setBand(String band) {
-		this.band = band;
-	}
-
 	public long getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -87,19 +84,19 @@ public class Employee {
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
+	
 	public Salary getSalary() {
 		return salary;
 	}
 
+	@Autowired
 	public void setSalary(Salary salary) {
 		this.salary = salary;
 	}
 	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", corpId=" + corpId + ", band=" + band
-				+ ", phoneNumber=" + phoneNumber + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", corpId=" + corpId + ", phoneNumber=" + phoneNumber + ", salary=" + salary + "]";
 	}
 
 	@Override
